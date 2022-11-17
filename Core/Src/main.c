@@ -108,8 +108,9 @@ int main(void)
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
 
-  setMotorRPWM(0.3);
-  setMotorLPWM(0.3);
+
+  //setMotorRPWM(0.3);
+  setMotorLPWM(-0.3);
   /* USER CODE END 2 */
 
   /* Infinite loop */
