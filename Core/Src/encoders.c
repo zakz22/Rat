@@ -9,14 +9,14 @@
  * Implement this function so it returns the right encoder value
  */
 int16_t getRightEncoderCounts() {
-	return (int16_t) TIM2->CNT ;
+	return  (-1) * (int16_t) TIM2->CNT ;
 }
 
 /*
  * Implement this function so it returns the left encoder value
  */
 int16_t getLeftEncoderCounts() {
-	return (int16_t) TIM1->CNT;
+	return (-1) * (int16_t) TIM1->CNT;
 }
 
 /*

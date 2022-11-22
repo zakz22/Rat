@@ -103,6 +103,7 @@ int main(void)
 
   HAL_TIM_Encoder_Start(&htim1, TIM_CHANNEL_ALL);
   HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
+
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_1);
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_2);
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3);
@@ -110,11 +111,12 @@ int main(void)
 
 
   //setMotorRPWM(0.3);
-  setMotorLPWM(-0.3);
+ // setMotorLPWM(0.3);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  turn(1);
   while (1)
   {
 	  left_counts = getLeftEncoderCounts();

@@ -9,14 +9,26 @@
 int angleError = 0;
 int oldAngleError = 0;
 float distanceError = 0.4;
-float oldDistanceError = 0;
-float kPw = (1.5);
+float oldDistanceError = 0.4;
+float kPw = (0.001);
 float kDw = (0);
-float kPx = (0.5);
+float kPx = (0.001);
 float kDx = (0);
+
+int angleGoal = 0;
+int distanceGoal = 0;
 
 
 void resetPID() {
+	angleError = 0;
+	oldAngleError = 0;
+	distanceError = 0;
+	oldDistanceError = 0;
+	angleGoal = 0;
+	distanceGoal = 0;
+	resetMotors();
+	resetEncoders();
+
 	/*
 	 * For assignment 3.1: This function does not need to do anything
 	 * For assignment 3.2: This function should reset all the variables you define in this file to help with PID to their default
@@ -29,11 +41,11 @@ void resetPID() {
 }
 
 void updatePID() {
-	angleError = getLeftEncoderCounts() - getRightEncoderCounts();
+	angleError = angleGoal - (getLeftEncoderCounts() - getRightEncoderCounts());
 	float angleCorrection = kPw * angleError + kDw * (angleError - oldAngleError);
 	oldAngleError = angleError;
 
-	distanceError = 0.4;
+	distanceError = distanceGoal - ((getLeftEncoderCounts() + getRightEncoderCounts())/2);
 	float distanceCorrection = kPx * distanceError + kDx * (distanceError - oldDistanceError);
 	oldDistanceError = distanceError;
 	setMotorLPWM(distanceCorrection + angleCorrection);
@@ -60,6 +72,7 @@ void updatePID() {
 }
 
 void setPIDGoalD(int16_t distance) {
+	distanceGoal = distance;
 	/*
 	 * For assignment 3.1: this function does not need to do anything.
 	 * For assignment 3.2: this function should set a variable that stores the goal distance.
@@ -67,6 +80,7 @@ void setPIDGoalD(int16_t distance) {
 }
 
 void setPIDGoalA(int16_t angle) {
+	angleGoal = angle;
 	/*
 	 * For assignment 3.1: this function does not need to do anything
 	 * For assignment 3.2: This function should set a variable that stores the goal angle.
@@ -74,6 +88,12 @@ void setPIDGoalA(int16_t angle) {
 }
 
 int8_t PIDdone(void) { // There is no bool type in C. True/False values are represented as 1 or 0.
+	float dThreshold = 1;
+	float aThreshold = 0.5;
+
+	if((angleError < aThreshold && angleError > -aThreshold) && (distanceError < dThreshold && distanceError > -dThreshold)) {
+		return 1;
+	}
 	/*
 	 * For assignment 3.1: this function does not need to do anything (your rat should just drive straight indefinitely)
 	 * For assignment 3.2:This function should return true if the rat has achieved the set goal. One way to do this by having updatePID() set some variable when

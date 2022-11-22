@@ -26,6 +26,11 @@ void move(int8_t n) {
  * direction and turn(-1) turns the other way.
  */
 void turn(int8_t n) {
+	setPIDGoalD(0);
+	setPIDGoalA(464 * n);
+	while (PIDdone() == 0);
+
+	resetPID();
 	/*
 	 * For assignment 3.1: Don't worry about implementing this yet
 	 * For assignment 3.2: This function should set the distance and angle goals appropriately for PID (hint: using the setGoal functions in pid.c)

@@ -39,7 +39,7 @@ void setMotorLPWM(float pwm) {
 	}
 	else {
 		TIM4->CCR3 = (uint32_t) 0;
-		TIM4->CCR4 = (uint32_t) (-1 * limitPWM(pwm) * MAX_TIMER_COUNTS);
+		TIM4->CCR4 = (uint32_t) (-1 * limitPWM(pwm) * MAX_TIMER_COUNTS); //the stupid pin can't be set to a negative
 	}
 }
 
@@ -63,7 +63,7 @@ void setMotorRPWM(float pwm) {
 	}
 	else {
 		TIM4->CCR1 = (uint32_t) 0;
-		TIM4->CCR2 = (uint32_t) (-1 * limitPWM(pwm) * MAX_TIMER_COUNTS);
+		TIM4->CCR2 = (uint32_t) (-1 * limitPWM(pwm) * MAX_TIMER_COUNTS); //the stupid pin can't be set to a negative
 	}
 	
 }
