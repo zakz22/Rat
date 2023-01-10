@@ -84,8 +84,8 @@ ADC_HandleTypeDef* Get_HADC1_Ptr(void);
 #define FrontRightReceiver_GPIO_Port GPIOB
 #define FrontRightEmitter_Pin GPIO_PIN_2
 #define FrontRightEmitter_GPIO_Port GPIOB
-#define Right_Pin GPIO_PIN_13
-#define Right_GPIO_Port GPIOB
+#define RightEmitter_Pin GPIO_PIN_13
+#define RightEmitter_GPIO_Port GPIOB
 #define LeftEmitter_Pin GPIO_PIN_9
 #define LeftEmitter_GPIO_Port GPIOC
 #define LeftEncoderCh1_Pin GPIO_PIN_8

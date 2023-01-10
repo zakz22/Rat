@@ -25,6 +25,7 @@
 #include "motors.h"
 #include "controller.h"
 #include "delay.h"
+#include "irs.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -473,7 +474,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, LED_Pin|FrontLeftEmitter_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, FrontRightEmitter_Pin|Right_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, FrontRightEmitter_Pin|RightEmitter_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LeftEmitter_GPIO_Port, LeftEmitter_Pin, GPIO_PIN_RESET);
@@ -491,8 +492,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : FrontRightEmitter_Pin Right_Pin */
-  GPIO_InitStruct.Pin = FrontRightEmitter_Pin|Right_Pin;
+  /*Configure GPIO pins : FrontRightEmitter_Pin RightEmitter_Pin */
+  GPIO_InitStruct.Pin = FrontRightEmitter_Pin|RightEmitter_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
