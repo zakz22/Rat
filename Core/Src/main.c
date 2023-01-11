@@ -26,6 +26,7 @@
 #include "controller.h"
 #include "delay.h"
 #include "irs.h"
+#include "pid.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -120,26 +121,26 @@ int main(void)
   HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_4);
 
 
-  //setMotorRPWM(0.3);
- // setMotorLPWM(0.3);
+//  setMotorRPWM(0.3);
+//  setMotorLPWM(0.3);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-//  turn(1);
-//  move(1);
+  //turn(1);
+  move(1);
   while (1)
   {
 	  left_counts = getLeftEncoderCounts();
 	  right_counts = getRightEncoderCounts();
 
-	  if(readIR(IR_FRONT_LEFT) < 2000 && readIR(IR_FRONT_RIGHT) < 2000) { //2000 isn't a real number I made that up
-		  move(1);
-	  } else if(readIR(IR_RIGHT) < 2000) {
-		  turn(1);
-	  } else {
-		  turn(3);
-	  }
+//	  if(readIR(IR_FRONT_LEFT) < 2000 && readIR(IR_FRONT_RIGHT) < 2000) { //2000 isn't a real number I made that up
+//		  move(1);
+//	  } else if(readIR(IR_RIGHT) < 2000) {
+//		  turn(1);
+//	  } else {
+//		  turn(3);
+//	  }
 
     /* USER CODE END WHILE */
 

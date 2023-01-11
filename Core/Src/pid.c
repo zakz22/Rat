@@ -75,6 +75,7 @@ void updatePID() {
 
 void setPIDGoalD(int16_t distance) {
 	distanceGoal = distance;
+	distanceError = distanceGoal - ((getLeftEncoderCounts() + getRightEncoderCounts())/2);
 	/*
 	 * For assignment 3.1: this function does not need to do anything.
 	 * For assignment 3.2: this function should set a variable that stores the goal distance.
@@ -83,6 +84,8 @@ void setPIDGoalD(int16_t distance) {
 
 void setPIDGoalA(int16_t angle) {
 	angleGoal = angle;
+	angleError = angleGoal - (getLeftEncoderCounts() - getRightEncoderCounts());
+
 	/*
 	 * For assignment 3.1: this function does not need to do anything
 	 * For assignment 3.2: This function should set a variable that stores the goal angle.
@@ -90,10 +93,10 @@ void setPIDGoalA(int16_t angle) {
 }
 
 int8_t PIDdone(void) { // There is no bool type in C. True/False values are represented as 1 or 0.
-	float dThreshold = 100;
-	float aThreshold = 100;
+	float dThreshold = 10;
+	float aThreshold = 10;
 
-	if((angleError < aThreshold && angleError > -1 * aThreshold) && (distanceError < dThreshold && distanceError > -1 * dThreshold)) {
+	if((angleError < aThreshold && angleError > (-1 * aThreshold)) && (distanceError < dThreshold && distanceError > (-1 * dThreshold))) {
 		return 1;
 	}
 //	if(angleError == 0) {
