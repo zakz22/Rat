@@ -1,7 +1,7 @@
 ../Core/Src/irs.c:21:10:readIR	24	static
-../Core/Src/irs.c:59:10:readLeftIR	8	static
-../Core/Src/irs.c:64:10:readFrontLeftIR	8	static
-../Core/Src/irs.c:69:10:readFrontRightIR	8	static
-../Core/Src/irs.c:75:10:readRightIR	8	static
-../Core/Src/irs.c:84:10:analogRead	48	static
-../Core/Src/irs.c:145:6:HAL_ADC_ConvCpltCallback	16	static
+../Core/Src/irs.c:63:10:readLeftIR	8	static
+../Core/Src/irs.c:68:10:readFrontLeftIR	8	static
+../Core/Src/irs.c:73:10:readFrontRightIR	8	static
+../Core/Src/irs.c:79:10:readRightIR	8	static
+../Core/Src/irs.c:88:10:analogRead	48	static
+../Core/Src/irs.c:149:6:HAL_ADC_ConvCpltCallback	16	static

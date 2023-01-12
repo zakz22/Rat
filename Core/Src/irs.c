@@ -28,24 +28,28 @@ uint16_t readIR(IR ir)
 			delayMicroseconds(20);
 			value = readLeftIR();
 			HAL_GPIO_WritePin(LeftEmitter_GPIO_Port, LeftEmitter_Pin, GPIO_PIN_RESET);
+			break;
 		}
 		case IR_FRONT_LEFT: {
 			HAL_GPIO_WritePin(FrontLeftEmitter_GPIO_Port, FrontLeftEmitter_Pin, GPIO_PIN_SET);
 			delayMicroseconds(20);
 			value = readFrontLeftIR();
 			HAL_GPIO_WritePin(FrontLeftEmitter_GPIO_Port, FrontLeftEmitter_Pin, GPIO_PIN_RESET);
+			break;
 		}
 		case IR_FRONT_RIGHT: {
 			HAL_GPIO_WritePin(FrontRightEmitter_GPIO_Port, FrontRightEmitter_Pin, GPIO_PIN_SET);
 			delayMicroseconds(20);
 			value = readFrontRightIR();
 			HAL_GPIO_WritePin(FrontRightEmitter_GPIO_Port, FrontRightEmitter_Pin, GPIO_PIN_RESET);
+			break;
 		}
 		case IR_RIGHT: {
 			HAL_GPIO_WritePin(RightEmitter_GPIO_Port, RightEmitter_Pin, GPIO_PIN_SET);
 			delayMicroseconds(20);
 			value = readRightIR();
 			HAL_GPIO_WritePin(RightEmitter_GPIO_Port, RightEmitter_Pin, GPIO_PIN_RESET);
+			break;
 		}
 	}
 

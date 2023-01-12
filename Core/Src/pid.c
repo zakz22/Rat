@@ -10,10 +10,10 @@ int angleError = 0;
 int oldAngleError = 0;
 float distanceError = 0.4;
 float oldDistanceError = 0.4;
-float kPw = (0.1);
-float kDw = (0);
-float kPx = (0.1);
-float kDx = (0);
+float kPw = (0.2);
+float kDw = (0.85);
+float kPx = (0.5);
+float kDx = (0.8);
 
 int angleGoal = 0;
 int distanceGoal = 0;
@@ -94,7 +94,7 @@ void setPIDGoalA(int16_t angle) {
 
 int8_t PIDdone(void) { // There is no bool type in C. True/False values are represented as 1 or 0.
 	float dThreshold = 10;
-	float aThreshold = 10;
+	float aThreshold = 5;
 
 	if((angleError < aThreshold && angleError > (-1 * aThreshold)) && (distanceError < dThreshold && distanceError > (-1 * dThreshold))) {
 		return 1;

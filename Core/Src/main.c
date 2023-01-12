@@ -56,6 +56,13 @@ UART_HandleTypeDef huart2;
 /* USER CODE BEGIN PV */
 int16_t left_counts = 0;
 int16_t right_counts = 0;
+
+uint16_t ir_front_left = 0;
+uint16_t ir_front_right = 0;
+
+uint16_t ir_right = 0;
+uint16_t ir_left = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -127,19 +134,26 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  //turn(1);
+
+//  turn(1);
   move(1);
+
   while (1)
   {
 	  left_counts = getLeftEncoderCounts();
 	  right_counts = getRightEncoderCounts();
+
+	  ir_front_left = readIR(IR_FRONT_LEFT);
+	  ir_front_right = readIR(IR_FRONT_RIGHT);
+	  ir_left = readIR(IR_LEFT);
+	  ir_right = readIR(IR_RIGHT);
 
 //	  if(readIR(IR_FRONT_LEFT) < 2000 && readIR(IR_FRONT_RIGHT) < 2000) { //2000 isn't a real number I made that up
 //		  move(1);
 //	  } else if(readIR(IR_RIGHT) < 2000) {
 //		  turn(1);
 //	  } else {
-//		  turn(3);
+//		  turn(-1);
 //	  }
 
     /* USER CODE END WHILE */
