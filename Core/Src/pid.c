@@ -93,8 +93,8 @@ void setPIDGoalA(int16_t angle) {
 }
 
 int8_t PIDdone(void) { // There is no bool type in C. True/False values are represented as 1 or 0.
-	float dThreshold = 10;
-	float aThreshold = 5;
+	float dThreshold = 5;
+	float aThreshold = 3;
 
 	if((angleError < aThreshold && angleError > (-1 * aThreshold)) && (distanceError < dThreshold && distanceError > (-1 * dThreshold))) {
 		return 1;

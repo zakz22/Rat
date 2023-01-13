@@ -135,8 +135,17 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
+//  move(1);
 //  turn(1);
-  move(1);
+//  move(1);
+//
+//  if(readIR(IR_FRONT_LEFT) < 1500 && readIR(IR_FRONT_RIGHT) < 1500) { //2000 isn't a real number I made that up
+// 		  move(1);
+// 	  } else if(readIR(IR_RIGHT) < 1500) {
+// 		  turn(1);
+// 	  } else {
+// 		  turn(-1);
+// 	  }
 
   while (1)
   {
@@ -148,13 +157,17 @@ int main(void)
 	  ir_left = readIR(IR_LEFT);
 	  ir_right = readIR(IR_RIGHT);
 
-//	  if(readIR(IR_FRONT_LEFT) < 2000 && readIR(IR_FRONT_RIGHT) < 2000) { //2000 isn't a real number I made that up
-//		  move(1);
-//	  } else if(readIR(IR_RIGHT) < 2000) {
-//		  turn(1);
-//	  } else {
-//		  turn(-1);
-//	  }
+//	  move(1);
+//	  turn(1);
+//	  turn(-1);
+
+	  if(readIR(IR_FRONT_LEFT) < 1500 && readIR(IR_FRONT_RIGHT) < 1500) { //2000 isn't a real number I made that up
+		  move(1);
+	  } else if(readIR(IR_RIGHT) < 1500) {
+		  turn(1);
+	  } else {
+		  turn(-1);
+	  }
 
     /* USER CODE END WHILE */
 
