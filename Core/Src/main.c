@@ -136,7 +136,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
 //  move(1);
-//  turn(1);
+  turn(1);
 //  move(1);
 //
 //  if(readIR(IR_FRONT_LEFT) < 1500 && readIR(IR_FRONT_RIGHT) < 1500) { //2000 isn't a real number I made that up
@@ -161,13 +161,13 @@ int main(void)
 //	  turn(1);
 //	  turn(-1);
 
-	  if(readIR(IR_FRONT_LEFT) < 1500 && readIR(IR_FRONT_RIGHT) < 1500) { //2000 isn't a real number I made that up
-		  move(1);
-	  } else if(readIR(IR_RIGHT) < 1500) {
-		  turn(1);
-	  } else {
-		  turn(-1);
-	  }
+//	  if(readIR(IR_FRONT_LEFT) < 1150 && readIR(IR_FRONT_RIGHT) < 1150) { //2000 isn't a real number I made that up
+//		  move(1);
+//	  } else if(readIR(IR_RIGHT) < 1150) {
+//		  turn(1);
+//	  } else {
+//		  turn(-1);
+//	  }
 
     /* USER CODE END WHILE */
 

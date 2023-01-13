@@ -11,7 +11,7 @@
  */
 void move(int8_t n) {
 	setPIDGoalA(0);
-	setPIDGoalD(550 * n); //648
+	setPIDGoalD(555 * n); //648
 
 	while (!PIDdone()) {};
 
